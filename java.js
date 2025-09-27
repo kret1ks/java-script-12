@@ -76,3 +76,83 @@ function findBestEmployee(employees){
 }
 
 console.log(findBestEmployee(employees));
+
+
+
+
+
+
+// Напиши функцію countTotalSalary(employees) приймаючу об'єкт зарплат. Функція рахує загальну суму зарплати працівників і повертає її. Кожне поле об'єкта, переданого в функцію, має вигляд "ім'я":"зарплата".
+
+
+function countTotalSalary(employes) {
+    let total = 0;
+    for(const name in employes){
+        total += employes[name]
+    }
+    return total
+}
+
+const employes = {
+    Max: 2500,
+    Anna: 3000,
+    Jonh: 1500,
+}
+console.log(countTotalSalary(employes));
+
+
+
+
+// Напиши функцію getAllPropValues(arr, prop), яка отримує масив об'єктів і ім'я властивості. Повертає масив значень певної властивості prop з кожного об'єкта в масиві.
+
+
+function getAllPropValues(arr, prop) {
+    const values = [];
+
+
+    for(const obj of arr){
+        if(prop in obj){
+            values.push(obj[prop])
+        }
+    }
+    return values
+}
+
+
+const baza = [
+    {name: "Nazar", age: 14},
+    {name: "Ostap", age: 16},
+    {name: "Ira", age: 15}
+]
+console.log(getAllPropValues(baza, "name")); 
+console.log(getAllPropValues(baza, "age"));  
+
+
+
+
+// Напиши функцію calculateTotalPrice(allProdcuts, productName), яка отримує масив об'єктів та ім'я продукту (значення властивості name). Повертає загальну вартість продукту (ціна * кількість).
+
+
+
+function calculateTotalPrice(allProdcuts, productName) {
+    let number = 0;
+    for(const product of allProdcuts){
+        if(product.name === productName){
+            number += product.price * product.quantity
+        }
+    }
+    return number;
+}
+
+
+
+
+
+const products = [
+  { name: "Apple", price: 10, quantity: 5 },
+  { name: "Banana", price: 7, quantity: 3 },
+  { name: "Apple", price: 10, quantity: 2 }
+];
+console.log(calculateTotalPrice(products, "Apple"));  
+console.log(calculateTotalPrice(products, "Banana")); 
+console.log(calculateTotalPrice(products, "Orange")); 
